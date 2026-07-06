@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 600" role="img" aria-label="Логотип Fast Bite">
+  <defs>
+    <linearGradient id="flameGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff6b00"/>
+      <stop offset="100%" stop-color="#ffce4e"/>
+    </linearGradient>
+    <radialGradient id="faceGlow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#ffe6ad"/>
+      <stop offset="100%" stop-color="#f5d5a1"/>
+    </radialGradient>
+  </defs>
+  <rect width="480" height="600" rx="40" fill="#fbf1db"/>
+  <circle cx="240" cy="210" r="180" fill="#f9b233"/>
+  <path d="M140 190c30-90 100-110 100-110s30 40 18 90c18-18 40-18 52 18 14 40 10 112-22 156-32 44-84 44-116 18-42-34-54-88-32-172z" fill="#7b3d17"/>
+  <path d="M150 250c8-22 38-30 58-24 40 14 20 56 0 66-34 20-76 4-58-42z" fill="#f2c697"/>
+  <path d="M340 190c-30-90-100-110-100-110s-30 40-18 90c-18-18-40-18-52 18-14 40-10 112 22 156 32 44 84 44 116 18 42-34 54-88 32-172z" fill="#7b3d17"/>
+  <ellipse cx="240" cy="300" rx="120" ry="138" fill="url(#faceGlow)"/>
+  <path d="M190 220c0-18 16-32 36-32s36 14 36 32" fill="none" stroke="#000" stroke-width="12" stroke-linecap="round"/>
+  <ellipse cx="190" cy="300" rx="18" ry="26" fill="#000"/>
+  <ellipse cx="290" cy="300" rx="18" ry="26" fill="#000"/>
+  <path d="M198 335c12 14 32 14 44 0" fill="none" stroke="#000" stroke-width="14" stroke-linecap="round"/>
+  <path d="M122 120c20-30 45-42 45-42s-4 30 14 44c0 0 22-66 52-76s28 40 18 66c10-18 36-34 60-28s24 62 16 84c0 0 28-18 36-36 8-18 24-52 24-52s22 34 18 58c0 0 34-30 34-4 0 26-30 66-30 66s-4 26-30 56c-24 28-90 46-90 46s-36-30-50-62c-10 0-16 30-34 52-22 28-84 52-84 52s-38-46-34-86c4-38 46-72 46-72z" fill="url(#flameGrad)"/>
+  <rect x="138" y="430" width="204" height="70" rx="32" fill="#f7d272" stroke="#000" stroke-width="10"/>
+  <rect x="150" y="454" width="180" height="28" rx="14" fill="#ec832c"/>
+  <path d="M170 455c18 20 44 28 70 28s52-10 70-28" fill="none" stroke="#000" stroke-width="10" stroke-linecap="round"/>
+  <path d="M165 455c8-18 28-26 58-26s50 8 58 26" fill="none" stroke="#000" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="205" cy="492" r="8" fill="#000"/>
+  <circle cx="275" cy="492" r="8" fill="#000"/>
+</svg>

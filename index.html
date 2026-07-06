@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FastBite — фастфуд</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <canvas id="dotfield-canvas" class="dotfield-canvas" aria-hidden="true"></canvas>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="#menu">Меню</a>
+      <a href="#about">О нас</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <button id="cart-btn" class="btn ghost" aria-label="Корзина" aria-controls="cart-panel">🛒 <span id="cart-count" class="cart-count">0</span></button>
+      <!-- TODO: при клике прокрутить к меню или открыть корзину, если в ней есть товары -->
+      <button class="btn order-btn" id="open-order" type="button" data-scroll-target="#menu">Заказать</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-left">
+        <h1 class="hero-title blur-text" data-animate-by="words" data-direction="top" data-delay="90">Быстро. Вкусно. Стильно.</h1>
+        <p class="lead blur-text" data-animate-by="letters" data-direction="top" data-delay="50">Классические бургеры, хрустящая картошка и молочные коктейли.</p>
+        <div class="actions">
+          <!-- TODO: при клике прокрутить к меню или открыть корзину, если в ней есть товары -->
+          <button class="btn primary" id="order-now" type="button" data-scroll-target="#menu">Заказать сейчас</button>
+          <a class="btn ghost" href="#menu">Посмотреть меню</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="card burger-card">
+          <div class="hero-logo"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="menu">
+      <div class="menu-top">
+        <div>
+          <h2 class="blur-text" data-animate-by="words" data-direction="top" data-delay="80">Популярное</h2>
+          <p class="menu-subtitle blur-text" data-animate-by="words" data-direction="top" data-delay="80">Выбирайте меню по категориям и добавляйте в корзину за пару кликов.</p>
+        </div>
+        <div class="categories" id="category-tabs">
+          <button class="category-btn active" data-category="all">Все</button>
+          <button class="category-btn" data-category="burgers">Бургеры</button>
+          <button class="category-btn" data-category="sets">Сеты</button>
+          <button class="category-btn" data-category="drinks">Напитки</button>
+          <button class="category-btn" data-category="snacks">Закуски</button>
+          <button class="category-btn" data-category="dessert">Десерты</button>
+        </div>
+      </div>
+      <div class="cards">
+        <article class="menu-card" data-category="snacks">
+          <div class="icon fries-anim" aria-hidden="true">
+            <img class="menu-photo" src="https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&w=600&q=80" alt="Хрустящая картошка фри" loading="lazy">
+          </div>
+          <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="40">Хрустящая картошка</h3>
+          <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="30">Золотистая, хрустящая и отлично солёная.</p>
+          <button class="btn small" data-item="fries" data-price="99" data-title="Хрустящая картошка">Заказать</button>
+        </article>
+
+        <article class="menu-card" data-category="burgers">
+          <div class="icon">
+            <img class="menu-photo" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Классический бургер" loading="lazy">
+          </div>
+          <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="40">Классический бургер</h3>
+          <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="30">Сочное мясо, свежая булочка и фирменный соус.</p>
+          <button class="btn small" data-item="burger" data-price="199" data-title="Классический бургер">Заказать</button>
+        </article>
+
+        <article class="menu-card" data-category="drinks">
+          <div class="icon shake-anim">
+            <img class="menu-photo" src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=600&q=80" alt="Ванильный шейк" loading="lazy">
+          </div>
+          <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="40">Шейк ванильный</h3>
+          <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="30">Кремовый микс с натуральной ванилью.</p>
+          <button class="btn small" data-item="shake" data-price="129" data-title="Шейк ванильный">Заказать</button>
+        </article>
+
+        <article class="menu-card" data-category="dessert">
+          <div class="icon">
+            <img class="menu-photo" src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=600&q=80" alt="Шоколадный брауни" loading="lazy">
+          </div>
+          <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="40">Шоколадный брауни</h3>
+          <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="30">Насыщенный десерт с шоколадной начинкой.</p>
+          <button class="btn small" data-item="brownie" data-price="139" data-title="Шоколадный брауни">Заказать</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="deals" class="deals">
+      <div class="deals-header">
+        <span class="deals-label blur-text" data-animate-by="words" data-direction="top" data-delay="60">Супер выгодно</span>
+        <h2 class="blur-text" data-animate-by="words" data-direction="top" data-delay="60">Брендовые сеты по лучшей цене</h2>
+      </div>
+      <div class="cards deals-cards">
+        <article class="deals-card">
+          <div class="icon deal-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="80" height="80" aria-hidden="true">
+              <path d="M32 10c-8 0-14 6-14 14v4h28v-4c0-8-6-14-14-14z" fill="#f7c948"/>
+              <path d="M20 32h24v18a8 8 0 0 1-8 8H28a8 8 0 0 1-8-8V32z" fill="#332108"/>
+            </svg>
+          </div>
+          <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="45">Мега-сет Мороженого</h3>
+          <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="35">Три порции прохладного пломбира в фирменных вафельных рожках по цене двух.</p>
+          <button class="btn small green" data-item="icecream" data-price="89" data-title="Мега-сет Мороженого">Заказать</button>
+        </article>
+
+        <article class="deals-card">
+          <div class="icon deal-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="80" height="80" aria-hidden="true">
+              <path d="M18 18c4-7 16-7 20 0 4-7 16-7 20 0v28c0 9-7 14-20 14s-20-5-20-14V18z" fill="#332108"/>
+              <path d="M28 22c4-2 8-2 12 0v20c-4 2-8 2-12 0V22z" fill="#f7c948"/>
+            </svg>
+          </div>
+          <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="45">Комбо Огонь</h3>
+          <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="35">Большая порция острых крылышек плюс фирменный соус чили для большой компании.</p>
+          <button class="btn small green" data-item="wings" data-price="159" data-title="Комбо Огонь">Заказать</button>
+        </article>
+
+        <article class="deals-card">
+          <div class="icon deal-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="80" height="80" aria-hidden="true">
+              <path d="M24 14h16l4 12H20l4-12z" fill="#f7c948"/>
+              <path d="M26 26h12v22H26z" fill="#332108"/>
+              <circle cx="32" cy="18" r="4" fill="#fff" opacity="0.86"/>
+            </svg>
+          </div>
+          <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="45">Трио Лимонадов</h3>
+          <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="35">Три прохладных напитка на выбор — лимонад, кола или освежающий мохито.</p>
+          <button class="btn small green" data-item="drinks" data-price="119" data-title="Трио Лимонадов">Заказать</button>
+        </article>
+      </div>
+    </section>
+
+  <!-- Cart panel (drawer) -->
+  <aside id="cart-panel" class="cart-panel hidden" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Ваша корзина</h3>
+      <button id="close-cart" class="modal-close" type="button" aria-label="Закрыть корзину">✕</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <form id="order-form" class="order-form">
+      <label class="form-field">
+        <span>Имя</span>
+        <input type="text" name="customerName" placeholder="Ваше имя" required>
+      </label>
+      <label class="form-field">
+        <span>Телефон</span>
+        <input type="tel" name="phone" placeholder="+7 (999) 123-45-67" required>
+      </label>
+      <label class="form-field">
+        <span>Способ получения</span>
+        <select name="deliveryType" id="delivery-type" required>
+          <option value="">Выберите</option>
+          <option value="delivery">Доставка</option>
+          <option value="pickup">Самовывоз</option>
+        </select>
+      </label>
+      <label class="form-field address-field hidden" id="address-group">
+        <span>Адрес доставки</span>
+        <textarea id="address-input" name="address" rows="3" placeholder="Улица, дом, квартира"></textarea>
+      </label>
+      <button id="checkout" class="btn primary" type="submit">Оформить</button>
+    </form>
+    <div class="cart-footer">
+      <div class="cart-total">Итого: <span id="cart-total">0</span> ₽</div>
+    </div>
+  </aside>
+
+    <section id="about" class="about">
+      <h2 class="blur-text" data-animate-by="words" data-direction="top" data-delay="70">О нас</h2>
+      <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="35">FastBite — концепт современной закусочной: быстрое обслуживание и узнаваемый стиль.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="contact-card">
+      <p><strong>Адрес:</strong> г. Москва, ул. Бургерная, д. 10</p>
+      <p><strong>Время работы:</strong> Ежедневно с 10:00 до 23:00</p>
+      <div class="contact-links">
+        <a href="#" aria-label="VK">VK</a>
+        <a href="#" aria-label="Telegram">Telegram</a>
+      </div>
+    </div>
+    <p>© FastBite — демонстрационный сайт. Доставка и оплата — для примера.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
