@@ -11,12 +11,16 @@
   <canvas id="dotfield-canvas" class="dotfield-canvas" aria-hidden="true"></canvas>
   <header class="site-header">
     <button id="burger-toggle" class="btn burger-toggle" aria-label="Открыть меню">☰</button>
-    <nav class="nav">
-      <a href="#menu">Меню</a>
-      <a href="#about">О нас</a>
-      <a href="#contact">Контакты</a>
-    </nav>
+    <div class="header-brand">
+      <div class="brand-glow"></div>
+      <h1 class="site-logo">FastBite</h1>
+    </div>
     <div class="header-actions">
+      <nav class="nav">
+        <a href="#menu">Меню</a>
+        <a href="#about">О нас</a>
+        <a href="#contact">Контакты</a>
+      </nav>
       <button id="cart-btn" class="btn ghost cart-button" aria-label="Корзина" aria-controls="cart-panel">🛒 <span id="cart-count" class="cart-count">0</span></button>
       <button class="btn order-btn" id="open-order" type="button" data-scroll-target="#menu">Заказать</button>
     </div>
@@ -93,50 +97,32 @@
           <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="30">Насыщенный десерт с шоколадной начинкой.</p>
           <button class="btn small" data-item="brownie" data-price="139" data-title="Шоколадный брауни">Заказать</button>
         </article>
-      </div>
-    </section>
 
-    <section id="deals" class="deals">
-      <div class="deals-header">
-        <span class="deals-label blur-text" data-animate-by="words" data-direction="top" data-delay="60">Супер выгодно</span>
-        <h2 class="blur-text" data-animate-by="words" data-direction="top" data-delay="60">Брендовые сеты по лучшей цене</h2>
-      </div>
-      <div class="cards deals-cards">
-        <article class="deals-card">
-          <div class="icon deal-icon" aria-hidden="true">
-            <svg viewBox="0 0 64 64" width="80" height="80" aria-hidden="true">
-              <path d="M32 10c-8 0-14 6-14 14v4h28v-4c0-8-6-14-14-14z" fill="#f7c948"/>
-              <path d="M20 32h24v18a8 8 0 0 1-8 8H28a8 8 0 0 1-8-8V32z" fill="#332108"/>
-            </svg>
+        <article class="menu-card" data-category="sets">
+          <div class="icon">
+            <img class="menu-photo" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80" alt="Мега-сет Мороженого" loading="lazy">
           </div>
           <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="45">Мега-сет Мороженого</h3>
           <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="35">Три порции прохладного пломбира в фирменных вафельных рожках по цене двух.</p>
-          <button class="btn small green" data-item="icecream" data-price="89" data-title="Мега-сет Мороженого">Заказать</button>
+          <button class="btn small" data-item="icecream" data-price="89" data-title="Мега-сет Мороженого">Заказать</button>
         </article>
 
-        <article class="deals-card">
-          <div class="icon deal-icon" aria-hidden="true">
-            <svg viewBox="0 0 64 64" width="80" height="80" aria-hidden="true">
-              <path d="M18 18c4-7 16-7 20 0 4-7 16-7 20 0v28c0 9-7 14-20 14s-20-5-20-14V18z" fill="#332108"/>
-              <path d="M28 22c4-2 8-2 12 0v20c-4 2-8 2-12 0V22z" fill="#f7c948"/>
-            </svg>
+        <article class="menu-card" data-category="sets">
+          <div class="icon">
+            <img class="menu-photo" src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=600&q=80" alt="Комбо Огонь" loading="lazy">
           </div>
           <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="45">Комбо Огонь</h3>
           <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="35">Большая порция острых крылышек плюс фирменный соус чили для большой компании.</p>
-          <button class="btn small green" data-item="wings" data-price="159" data-title="Комбо Огонь">Заказать</button>
+          <button class="btn small" data-item="wings" data-price="159" data-title="Комбо Огонь">Заказать</button>
         </article>
 
-        <article class="deals-card">
-          <div class="icon deal-icon" aria-hidden="true">
-            <svg viewBox="0 0 64 64" width="80" height="80" aria-hidden="true">
-              <path d="M24 14h16l4 12H20l4-12z" fill="#f7c948"/>
-              <path d="M26 26h12v22H26z" fill="#332108"/>
-              <circle cx="32" cy="18" r="4" fill="#fff" opacity="0.86"/>
-            </svg>
+        <article class="menu-card" data-category="drinks">
+          <div class="icon">
+            <img class="menu-photo" src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80" alt="Трио Лимонадов" loading="lazy">
           </div>
           <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="45">Трио Лимонадов</h3>
           <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="35">Три прохладных напитка на выбор — лимонад, кола или освежающий мохито.</p>
-          <button class="btn small green" data-item="drinks" data-price="119" data-title="Трио Лимонадов">Заказать</button>
+          <button class="btn small" data-item="drinks" data-price="119" data-title="Трио Лимонадов">Заказать</button>
         </article>
       </div>
     </section>
