@@ -7,6 +7,18 @@ document.addEventListener('DOMContentLoaded',()=>{
   const scrollButtons=document.querySelectorAll('[data-scroll-target]');
   const burgerToggle=document.getElementById('burger-toggle');
   const navMenu=document.querySelector('.nav');
+  const header=document.querySelector('.site-header');
+  let lastScrollY = window.scrollY;
+
+  const productImageMap = {
+    fries: 'https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&w=600&q=80',
+    burger: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80',
+    shake: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=600&q=80',
+    brownie: 'https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=600&q=80',
+    icecream: 'https://images.unsplash.com/photo-1551024709-8f23befc6b5d?auto=format&fit=crop&w=600&q=80',
+    wings: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80',
+    drinks: 'https://images.unsplash.com/photo-1542444459-db195aae2c3f?auto=format&fit=crop&w=600&q=80'
+  };
 
   const dotCanvas = document.getElementById('dotfield-canvas');
   const dotCtx = dotCanvas?.getContext('2d');
@@ -260,7 +272,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       const div = document.createElement('div');
       div.className = 'cart-item';
       div.innerHTML = `
-        <img src="${it.img||'img/fries.jpg'}" alt="${it.title}">
+        <img src="${it.img || 'img/logo.png'}" alt="${it.title}">
         <div class="meta">
           <h4>${it.title}</h4>
           <div class="qty-controls">
@@ -317,7 +329,10 @@ document.addEventListener('DOMContentLoaded',()=>{
       const key = btn.dataset.item;
       const price = Number(btn.dataset.price||0);
       const title = btn.dataset.title || key;
-      const img = btn.closest('.menu-card')?.querySelector('img')?.getAttribute('src') || '';
+      let img = productImageMap[key] || 'img/logo.png';
+      const card = btn.closest('.menu-card, .deals-card');
+      const cardImg = card?.querySelector('img.menu-photo, img')?.getAttribute('src');
+      if (cardImg) img = cardImg;
       const found = cart.find(c=>c.key===key);
       if(found){ found.quantity += 1; }
       else { cart.push({key, title, price, quantity:1, img}); }
@@ -345,6 +360,17 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.nav a').forEach(link => {
     link.addEventListener('click', ()=> navMenu?.classList.remove('open'));
   });
+
+  window.addEventListener('scroll', ()=>{
+    const currentScroll = window.scrollY;
+    if (currentScroll > lastScrollY && currentScroll > 80) {
+      header?.classList.add('header-hidden');
+      navMenu?.classList.remove('open');
+    } else {
+      header?.classList.remove('header-hidden');
+    }
+    lastScrollY = currentScroll;
+  }, { passive: true });
 
   deliveryTypeSelect.addEventListener('change',()=>{
     const visible = deliveryTypeSelect.value === 'delivery';
