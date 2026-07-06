@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded',()=>{
   const orderBtns=document.querySelectorAll('button[data-item]');
   const categoryBtns=document.querySelectorAll('.category-btn');
   const scrollButtons=document.querySelectorAll('[data-scroll-target]');
+  const burgerToggle=document.getElementById('burger-toggle');
+  const navMenu=document.querySelector('.nav');
 
   const dotCanvas = document.getElementById('dotfield-canvas');
   const dotCtx = dotCanvas?.getContext('2d');
@@ -332,7 +334,16 @@ document.addEventListener('DOMContentLoaded',()=>{
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+      navMenu?.classList.remove('open');
     });
+  });
+
+  burgerToggle?.addEventListener('click', ()=>{
+    navMenu?.classList.toggle('open');
+  });
+
+  document.querySelectorAll('.nav a').forEach(link => {
+    link.addEventListener('click', ()=> navMenu?.classList.remove('open'));
   });
 
   deliveryTypeSelect.addEventListener('change',()=>{
