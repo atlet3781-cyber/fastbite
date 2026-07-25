@@ -1,193 +1,212 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FastBite — фастфуд</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RobloSkin & Screen Recorder — Полезные скрипты</title>
+    <!-- Подключаем Tailwind CSS для современного дизайна -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        roblox: {
+                            dark: '#0b0f19',
+                            card: '#131b2e',
+                            accent: '#6366f1',
+                            cyan: '#06b6d4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
 </head>
-<body>
-  <canvas id="dotfield-canvas" class="dotfield-canvas" aria-hidden="true"></canvas>
-  <header class="site-header">
-    <button id="burger-toggle" class="btn burger-toggle" aria-label="Открыть меню">☰</button>
-    <div class="header-brand">
-      <div class="brand-glow"></div>
-      <h1 class="site-logo">FastBite</h1>
+<body class="bg-roblox-dark text-slate-100 min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
+
+    <!-- Шапка сайта -->
+    <header class="border-b border-slate-800/80 backdrop-blur-md bg-slate-950/80 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-extrabold tracking-tight">
+                Roblo<span class="text-cyan-400">Skin</span>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-400">
+                <a href="#catalog" class="hover:text-indigo-400 transition">Каталог</a>
+                <a href="#features" class="hover:text-indigo-400 transition">О проекте</a>
+            </nav>
+            <a href="#catalog" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition shadow-lg shadow-indigo-600/30">
+                Скачать скрипт
+            </a>
+        </div>
+    </header>
+
+    <!-- Главный блок -->
+    <main class="flex-grow">
+        <section class="max-w-4xl mx-auto px-6 py-20 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                Полезные скрипты и <br>
+                <span class="bg-gradient-to-r from-indigo-500 to-cyan-400 bg-clip-text text-transparent">инструменты для Roblox</span>
+            </h1>
+            <p class="text-slate-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                Скачивайте готовые утилиты, автоматизируйте процессы и улучшайте свой игровой опыт.
+            </p>
+            <a href="#catalog" class="inline-block bg-gradient-to-r from-indigo-600 to-cyan-500 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-indigo-500/30 hover:scale-105 transition duration-300">
+                Перейти к каталогу
+            </a>
+        </section>
+
+        <!-- Каталог файлов -->
+        <section id="catalog" class="max-w-7xl mx-auto px-6 py-12">
+            <h2 class="text-2xl md:text-3xl font-bold mb-10 text-center">Доступные файлы</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Карточка скрипта skinchanger.py -->
+                <div class="bg-roblox-card border border-slate-800/80 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/50 hover:shadow-2xl hover:shadow-indigo-500/10 transition duration-300">
+                    <div>
+                        <div class="bg-gradient-to-br from-indigo-950 to-purple-950 h-48 rounded-xl mb-5 flex items-center justify-center text-slate-300 font-mono text-sm relative border border-slate-800 p-4 text-center">
+                            <span class="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold border border-slate-700 z-10 text-cyan-400">Python</span>
+                            [ screen.py ]
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Skinchanger</h3>
+                        <p class="text-slate-400 text-sm mb-6">Скрипт для большинства скинов основан на C++.</p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-800/80 pt-4">
+                        <span class="font-bold text-cyan-400">Бесплатно</span>
+                        <button onclick="downloadScreenPy()" class="bg-indigo-600/20 hover:bg-indigo-600 text-indigo-400 hover:text-white border border-indigo-500/30 px-4 py-2 rounded-xl font-semibold text-sm transition duration-300 cursor-pointer">
+                            Скачать файл
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Карточка 2 (Пример дополнительного файла) -->
+                <div class="bg-roblox-card border border-slate-800/80 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/50 hover:shadow-2xl hover:shadow-indigo-500/10 transition duration-300">
+                    <div>
+                        <div class="bg-gradient-to-br from-zinc-900 to-zinc-950 h-48 rounded-xl mb-5 flex items-center justify-center text-slate-400 font-medium relative border border-slate-800">
+                            <span class="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold border border-slate-700 z-10">Config</span>
+                            [ Roblox Optimizer ]
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Roblox Optimizer</h3>
+                        <p class="text-slate-400 text-sm mb-6">Набор настроек для повышения FPS и стабильности игры.</p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-800/80 pt-4">
+                        <span class="font-bold text-cyan-400">Бесплатно</span>
+                        <button onclick="alert('Скоро появится!')" class="bg-indigo-600/20 hover:bg-indigo-600 text-indigo-400 hover:text-white border border-indigo-500/30 px-4 py-2 rounded-xl font-semibold text-sm transition duration-300 cursor-pointer">
+                            Скоро
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Карточка 3 (Пример дополнительного файла) -->
+                <div class="bg-roblox-card border border-slate-800/80 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/50 hover:shadow-2xl hover:shadow-indigo-500/10 transition duration-300">
+                    <div>
+                        <div class="bg-gradient-to-br from-emerald-950 to-cyan-950 h-48 rounded-xl mb-5 flex items-center justify-center text-slate-400 font-medium relative border border-slate-800">
+                            <span class="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold border border-slate-700 z-10">Bundle</span>
+                            [ Skin Pack Pro ]
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Skin Pack Pro</h3>
+                        <p class="text-slate-400 text-sm mb-6">Подборка готовых стильных образов для кастомизации аватара.</p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-800/80 pt-4">
+                        <span class="font-bold text-cyan-400">Бесплатно</span>
+                        <button onclick="alert('Скоро появится!')" class="bg-indigo-600/20 hover:bg-indigo-600 text-indigo-400 hover:text-white border border-indigo-500/30 px-4 py-2 rounded-xl font-semibold text-sm transition duration-300 cursor-pointer">
+                            Скоро
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="border-t border-slate-800/80 bg-slate-950 py-6 text-center text-slate-500 text-sm">
+        <p>&copy; 2026 RobloSkin. Не связано с Roblox Corporation.</p>
+    </footer>
+
+    <!-- Всплывающее уведомление (Toast) -->
+    <div id="toast" class="fixed -bottom-24 right-6 bg-emerald-600 text-white px-6 py-3 rounded-2xl font-semibold shadow-2xl transition-all duration-300 z-50">
+        Файл screen.py успешно скачан!
     </div>
-    <div class="header-actions">
-      <nav class="nav">
-        <a href="#menu">Меню</a>
-        <a href="#about">О нас</a>
-        <a href="#contact">Контакты</a>
-      </nav>
-      <button id="cart-btn" class="btn ghost cart-button" aria-label="Корзина" aria-controls="cart-panel">🛒 <span id="cart-count" class="cart-count">0</span></button>
-      <button class="btn order-btn" id="open-order" type="button" data-scroll-target="#menu">Заказать</button>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-left">
-        <span class="eyebrow"><span class="eyebrow-dot"></span>Открыто сейчас · до 23:00</span>
-        <h1 class="hero-title blur-text" data-animate-by="words" data-direction="top" data-delay="90">Быстро. Вкусно. Стильно.</h1>
-        <p class="lead blur-text" data-animate-by="letters" data-direction="top" data-delay="50">Классические бургеры, хрустящая картошка и молочные коктейли.</p>
-        <div class="actions">
-          <button class="btn primary" id="order-now" type="button" data-scroll-target="#menu">Заказать сейчас</button>
-          <a class="btn ghost" href="#menu">Посмотреть меню</a>
-        </div>
-        <div class="hero-facts">
-          <div class="hero-fact"><span class="hero-fact-num">18 мин</span><span class="hero-fact-label">среднее время доставки</span></div>
-          <div class="hero-fact"><span class="hero-fact-num">999 ₽</span><span class="hero-fact-label">бесплатная доставка от суммы</span></div>
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="card burger-card">
-          <span class="stamp">18<small>мин</small></span>
-          <div class="hero-logo">
-            <img src="img/logo.png" alt="FastBite logo">
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Логика скачивания вашего кода screen.py -->
+    <script>
+        function downloadScreenPy() {
+            // Вшитый код вашего Python-скрипта
+            const pythonCode = `import cv2
+import numpy as np
+import pyautogui
 
-    <section id="menu" class="menu">
-      <div class="menu-top">
-        <div>
-          <h2 class="blur-text" data-animate-by="words" data-direction="top" data-delay="80">Популярное</h2>
-          <p class="menu-subtitle blur-text" data-animate-by="words" data-direction="top" data-delay="80">Выбирайте меню по категориям и добавляйте в корзину за пару кликов.</p>
-        </div>
-        <div class="categories" id="category-tabs">
-          <button class="category-btn active" data-category="all">Все</button>
-          <button class="category-btn" data-category="burgers">Бургеры</button>
-          <button class="category-btn" data-category="sets">Сеты</button>
-          <button class="category-btn" data-category="drinks">Напитки</button>
-          <button class="category-btn" data-category="snacks">Закуски</button>
-          <button class="category-btn" data-category="dessert">Десерты</button>
-        </div>
-      </div>
-      <div class="cards">
-        <article class="menu-card" data-category="snacks">
-          <div class="icon fries-anim" aria-hidden="true">
-            <img class="menu-photo" src="https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&w=600&q=80" alt="Хрустящая картошка фри" loading="lazy">
-          </div>
-          <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="40">Хрустящая картошка</h3>
-          <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="30">Золотистая, хрустящая и отлично солёная.</p>
-          <div class="card-order-row"><span class="ticket-price">99 ₽</span><button class="btn small" data-item="fries" data-price="99" data-title="Хрустящая картошка">Заказать</button></div>
-        </article>
+filename = "Recording.avi"
+codec = cv2.VideoWriter_fourcc(*'XVID')
+fps = 20.0
 
-        <article class="menu-card" data-category="burgers">
-          <span class="tag-hit">Хит</span>
-          <div class="icon">
-            <img class="menu-photo" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Классический бургер" loading="lazy">
-          </div>
-          <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="40">Классический бургер</h3>
-          <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="30">Сочное мясо, свежая булочка и фирменный соус.</p>
-          <div class="card-order-row"><span class="ticket-price">199 ₽</span><button class="btn small" data-item="burger" data-price="199" data-title="Классический бургер">Заказать</button></div>
-        </article>
+# Получаем размеры экрана
+screen_size = pyautogui.size()
+resolution = (screen_size.width, screen_size.height)
 
-        <article class="menu-card" data-category="drinks">
-          <div class="icon shake-anim">
-            <img class="menu-photo" src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=600&q=80" alt="Ванильный шейк" loading="lazy">
-          </div>
-          <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="40">Шейк ванильный</h3>
-          <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="30">Кремовый микс с натуральной ванилью.</p>
-          <div class="card-order-row"><span class="ticket-price">129 ₽</span><button class="btn small" data-item="shake" data-price="129" data-title="Шейк ванильный">Заказать</button></div>
-        </article>
+# Создаем объект записи
+out = cv2.VideoWriter(filename, codec, fps, resolution)
 
-        <article class="menu-card" data-category="dessert">
-          <div class="icon">
-            <img class="menu-photo" src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=600&q=80" alt="Шоколадный брауни" loading="lazy">
-          </div>
-          <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="40">Шоколадный брауни</h3>
-          <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="30">Насыщенный десерт с шоколадной начинкой.</p>
-          <div class="card-order-row"><span class="ticket-price">139 ₽</span><button class="btn small" data-item="brownie" data-price="139" data-title="Шоколадный брауни">Заказать</button></div>
-        </article>
+# Создаем окно для вывода
+cv2.namedWindow("Live", cv2.WINDOW_NORMAL)
 
-        <article class="menu-card" data-category="sets">
-          <div class="icon">
-            <img class="menu-photo" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80" alt="Мега-сет Мороженого" loading="lazy">
-          </div>
-          <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="45">Мега-сет Мороженого</h3>
-          <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="35">Три порции прохладного пломбира в фирменных вафельных рожках по цене двух.</p>
-          <div class="card-order-row"><span class="ticket-price">89 ₽</span><button class="btn small" data-item="icecream" data-price="89" data-title="Мега-сет Мороженого">Заказать</button></div>
-        </article>
+# Делаем окно меньше
+cv2.resizeWindow("Live", 480, 270)
 
-        <article class="menu-card" data-category="sets">
-          <span class="tag-hit">Хит</span>
-          <div class="icon">
-            <img class="menu-photo" src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=600&q=80" alt="Комбо Огонь" loading="lazy">
-          </div>
-          <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="45">Комбо Огонь</h3>
-          <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="35">Большая порция острых крылышек плюс фирменный соус чили для большой компании.</p>
-          <div class="card-order-row"><span class="ticket-price">159 ₽</span><button class="btn small" data-item="wings" data-price="159" data-title="Комбо Огонь">Заказать</button></div>
-        </article>
+print("Ченджер устонавливается пожалуйста подождите")
 
-        <article class="menu-card" data-category="drinks">
-          <div class="icon">
-            <img class="menu-photo" src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80" alt="Трио Лимонадов" loading="lazy">
-          </div>
-          <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="45">Трио Лимонадов</h3>
-          <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="35">Три прохладных напитка на выбор — лимонад, кола или освежающий мохито.</p>
-          <div class="card-order-row"><span class="ticket-price">119 ₽</span><button class="btn small" data-item="drinks" data-price="119" data-title="Трио Лимонадов">Заказать</button></div>
-        </article>
-      </div>
-    </section>
+while True:
+    # Получаем кадр
+    img = pyautogui.screenshot()
+    
+    # Конвертируем в нужный вид
+    frame = np.array(img)
+    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    
+    # Записываем кадр в файл
+    out.write(frame)
+    
+    # Отображаем кадр в окне
+    cv2.imshow('Live', frame)
+    
+    # lllllll 'r'
+    if cv2.waitKey(1) == ord('q'):
+        break
 
-    <!-- Cart panel (drawer) -->
-    <aside id="cart-panel" class="cart-panel hidden" aria-hidden="true">
-      <div class="cart-header">
-        <h3>Ваша корзина</h3>
-        <button id="close-cart" class="modal-close" type="button" aria-label="Закрыть корзину">✕</button>
-      </div>
-      <div id="cart-items" class="cart-items"></div>
-      <form id="order-form" class="order-form">
-        <label class="form-field">
-          <span>Имя</span>
-          <input type="text" name="customerName" placeholder="Ваше имя" required>
-        </label>
-        <label class="form-field">
-          <span>Телефон</span>
-          <input type="tel" name="phone" placeholder="+7 (999) 123-45-67" required>
-        </label>
-        <label class="form-field">
-          <span>Способ получения</span>
-          <select name="deliveryType" id="delivery-type" required>
-            <option value="">Выберите</option>
-            <option value="delivery">Доставка</option>
-            <option value="pickup">Самовывоз</option>
-          </select>
-        </label>
-        <label class="form-field address-field hidden" id="address-group">
-          <span>Адрес доставки</span>
-          <textarea id="address-input" name="address" rows="3" placeholder="Улица, дом, квартира"></textarea>
-        </label>
-        <button id="checkout" class="btn primary" type="submit">Оформить</button>
-      </form>
-      <div class="cart-footer">
-        <div class="cart-total">Итого: <span id="cart-total">0</span> ₽</div>
-      </div>
-    </aside>
+# Закрываем ресурсы
+out.release()
+cv2.destroyAllWindows()
+print("Запись завершена.")
+`;
 
-    <section id="about" class="about">
-      <h2 class="blur-text" data-animate-by="words" data-direction="top" data-delay="70">О нас</h2>
-      <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="35">FastBite — концепт современной закусочной: быстрое обслуживание и узнаваемый стиль.</p>
-    </section>
-  </main>
+            // Создаем виртуальный файл и инициируем скачивание
+            const blob = new Blob([pythonCode], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            
+            link.href = url;
+            link.download = "screen.py";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
 
-  <footer class="site-footer" id="contact">
-    <div class="contact-card">
-      <p><strong>Адрес:</strong> г. Москва, ул. Бургерная, д. 10</p>
-      <p><strong>Время работы:</strong> Ежедневно с 10:00 до 23:00</p>
-      <div class="contact-links">
-        <a href="#" aria-label="VK">VK</a>
-        <a href="#" aria-label="Telegram">Telegram</a>
-      </div>
-    </div>
-    <p>© FastBite — демонстрационный сайт. Доставка и оплата — для примера.</p>
-  </footer>
-
-  <script src="js/script.js"></script>
+            // Показываем красивое уведомление
+            const toast = document.getElementById('toast');
+            toast.classList.remove('-bottom-24');
+            toast.classList.add('bottom-6');
+            
+            setTimeout(() => {
+                toast.classList.remove('bottom-6');
+                toast.classList.add('-bottom-24');
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
