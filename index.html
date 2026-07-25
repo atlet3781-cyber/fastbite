@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FastBite — фастфуд</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -29,16 +30,21 @@
   <main>
     <section class="hero">
       <div class="hero-left">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Открыто сейчас · до 23:00</span>
         <h1 class="hero-title blur-text" data-animate-by="words" data-direction="top" data-delay="90">Быстро. Вкусно. Стильно.</h1>
         <p class="lead blur-text" data-animate-by="letters" data-direction="top" data-delay="50">Классические бургеры, хрустящая картошка и молочные коктейли.</p>
         <div class="actions">
-          <!-- TODO: при клике прокрутить к меню или открыть корзину, если в ней есть товары -->
           <button class="btn primary" id="order-now" type="button" data-scroll-target="#menu">Заказать сейчас</button>
           <a class="btn ghost" href="#menu">Посмотреть меню</a>
+        </div>
+        <div class="hero-facts">
+          <div class="hero-fact"><span class="hero-fact-num">18 мин</span><span class="hero-fact-label">среднее время доставки</span></div>
+          <div class="hero-fact"><span class="hero-fact-num">999 ₽</span><span class="hero-fact-label">бесплатная доставка от суммы</span></div>
         </div>
       </div>
       <div class="hero-right">
         <div class="card burger-card">
+          <span class="stamp">18<small>мин</small></span>
           <div class="hero-logo">
             <img src="img/logo.png" alt="FastBite logo">
           </div>
@@ -68,16 +74,17 @@
           </div>
           <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="40">Хрустящая картошка</h3>
           <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="30">Золотистая, хрустящая и отлично солёная.</p>
-          <button class="btn small" data-item="fries" data-price="99" data-title="Хрустящая картошка">Заказать</button>
+          <div class="card-order-row"><span class="ticket-price">99 ₽</span><button class="btn small" data-item="fries" data-price="99" data-title="Хрустящая картошка">Заказать</button></div>
         </article>
 
         <article class="menu-card" data-category="burgers">
+          <span class="tag-hit">Хит</span>
           <div class="icon">
             <img class="menu-photo" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Классический бургер" loading="lazy">
           </div>
           <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="40">Классический бургер</h3>
           <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="30">Сочное мясо, свежая булочка и фирменный соус.</p>
-          <button class="btn small" data-item="burger" data-price="199" data-title="Классический бургер">Заказать</button>
+          <div class="card-order-row"><span class="ticket-price">199 ₽</span><button class="btn small" data-item="burger" data-price="199" data-title="Классический бургер">Заказать</button></div>
         </article>
 
         <article class="menu-card" data-category="drinks">
@@ -86,7 +93,7 @@
           </div>
           <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="40">Шейк ванильный</h3>
           <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="30">Кремовый микс с натуральной ванилью.</p>
-          <button class="btn small" data-item="shake" data-price="129" data-title="Шейк ванильный">Заказать</button>
+          <div class="card-order-row"><span class="ticket-price">129 ₽</span><button class="btn small" data-item="shake" data-price="129" data-title="Шейк ванильный">Заказать</button></div>
         </article>
 
         <article class="menu-card" data-category="dessert">
@@ -95,7 +102,7 @@
           </div>
           <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="40">Шоколадный брауни</h3>
           <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="30">Насыщенный десерт с шоколадной начинкой.</p>
-          <button class="btn small" data-item="brownie" data-price="139" data-title="Шоколадный брауни">Заказать</button>
+          <div class="card-order-row"><span class="ticket-price">139 ₽</span><button class="btn small" data-item="brownie" data-price="139" data-title="Шоколадный брауни">Заказать</button></div>
         </article>
 
         <article class="menu-card" data-category="sets">
@@ -104,16 +111,17 @@
           </div>
           <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="45">Мега-сет Мороженого</h3>
           <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="35">Три порции прохладного пломбира в фирменных вафельных рожках по цене двух.</p>
-          <button class="btn small" data-item="icecream" data-price="89" data-title="Мега-сет Мороженого">Заказать</button>
+          <div class="card-order-row"><span class="ticket-price">89 ₽</span><button class="btn small" data-item="icecream" data-price="89" data-title="Мега-сет Мороженого">Заказать</button></div>
         </article>
 
         <article class="menu-card" data-category="sets">
+          <span class="tag-hit">Хит</span>
           <div class="icon">
             <img class="menu-photo" src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=600&q=80" alt="Комбо Огонь" loading="lazy">
           </div>
           <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="45">Комбо Огонь</h3>
           <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="35">Большая порция острых крылышек плюс фирменный соус чили для большой компании.</p>
-          <button class="btn small" data-item="wings" data-price="159" data-title="Комбо Огонь">Заказать</button>
+          <div class="card-order-row"><span class="ticket-price">159 ₽</span><button class="btn small" data-item="wings" data-price="159" data-title="Комбо Огонь">Заказать</button></div>
         </article>
 
         <article class="menu-card" data-category="drinks">
@@ -122,45 +130,45 @@
           </div>
           <h3 class="blur-text" data-animate-by="words" data-direction="top" data-delay="45">Трио Лимонадов</h3>
           <p class="blur-text" data-animate-by="letters" data-direction="top" data-delay="35">Три прохладных напитка на выбор — лимонад, кола или освежающий мохито.</p>
-          <button class="btn small" data-item="drinks" data-price="119" data-title="Трио Лимонадов">Заказать</button>
+          <div class="card-order-row"><span class="ticket-price">119 ₽</span><button class="btn small" data-item="drinks" data-price="119" data-title="Трио Лимонадов">Заказать</button></div>
         </article>
       </div>
     </section>
 
-  <!-- Cart panel (drawer) -->
-  <aside id="cart-panel" class="cart-panel hidden" aria-hidden="true">
-    <div class="cart-header">
-      <h3>Ваша корзина</h3>
-      <button id="close-cart" class="modal-close" type="button" aria-label="Закрыть корзину">✕</button>
-    </div>
-    <div id="cart-items" class="cart-items"></div>
-    <form id="order-form" class="order-form">
-      <label class="form-field">
-        <span>Имя</span>
-        <input type="text" name="customerName" placeholder="Ваше имя" required>
-      </label>
-      <label class="form-field">
-        <span>Телефон</span>
-        <input type="tel" name="phone" placeholder="+7 (999) 123-45-67" required>
-      </label>
-      <label class="form-field">
-        <span>Способ получения</span>
-        <select name="deliveryType" id="delivery-type" required>
-          <option value="">Выберите</option>
-          <option value="delivery">Доставка</option>
-          <option value="pickup">Самовывоз</option>
-        </select>
-      </label>
-      <label class="form-field address-field hidden" id="address-group">
-        <span>Адрес доставки</span>
-        <textarea id="address-input" name="address" rows="3" placeholder="Улица, дом, квартира"></textarea>
-      </label>
-      <button id="checkout" class="btn primary" type="submit">Оформить</button>
-    </form>
-    <div class="cart-footer">
-      <div class="cart-total">Итого: <span id="cart-total">0</span> ₽</div>
-    </div>
-  </aside>
+    <!-- Cart panel (drawer) -->
+    <aside id="cart-panel" class="cart-panel hidden" aria-hidden="true">
+      <div class="cart-header">
+        <h3>Ваша корзина</h3>
+        <button id="close-cart" class="modal-close" type="button" aria-label="Закрыть корзину">✕</button>
+      </div>
+      <div id="cart-items" class="cart-items"></div>
+      <form id="order-form" class="order-form">
+        <label class="form-field">
+          <span>Имя</span>
+          <input type="text" name="customerName" placeholder="Ваше имя" required>
+        </label>
+        <label class="form-field">
+          <span>Телефон</span>
+          <input type="tel" name="phone" placeholder="+7 (999) 123-45-67" required>
+        </label>
+        <label class="form-field">
+          <span>Способ получения</span>
+          <select name="deliveryType" id="delivery-type" required>
+            <option value="">Выберите</option>
+            <option value="delivery">Доставка</option>
+            <option value="pickup">Самовывоз</option>
+          </select>
+        </label>
+        <label class="form-field address-field hidden" id="address-group">
+          <span>Адрес доставки</span>
+          <textarea id="address-input" name="address" rows="3" placeholder="Улица, дом, квартира"></textarea>
+        </label>
+        <button id="checkout" class="btn primary" type="submit">Оформить</button>
+      </form>
+      <div class="cart-footer">
+        <div class="cart-total">Итого: <span id="cart-total">0</span> ₽</div>
+      </div>
+    </aside>
 
     <section id="about" class="about">
       <h2 class="blur-text" data-animate-by="words" data-direction="top" data-delay="70">О нас</h2>
@@ -180,8 +188,6 @@
     <p>© FastBite — демонстрационный сайт. Доставка и оплата — для примера.</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  
   <script src="js/script.js"></script>
 </body>
-</html
+</html>
